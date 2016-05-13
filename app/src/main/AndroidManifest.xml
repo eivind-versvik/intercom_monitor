@@ -17,7 +17,8 @@
             android:name="com.mobile.eversvik.stationmonitor.src.activity.ZapService"
             android:enabled="true"
             android:exported="true"
-            android:stopWithTask="true" />
+            android:stopWithTask="true"
+            />
 
         <activity
             android:name="com.mobile.eversvik.stationmonitor.src.activity.ZapDeviceCallActivity"
