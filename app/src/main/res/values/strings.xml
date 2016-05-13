@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Station Monitoring</string>
+    <string name="action_settings">Endpoint Calls</string>
+
+    <string name="title_activity_call_setup">Call Setup</string>
+    <string name="gpi_add_notify">Add</string>
+    <string name="gpi_cancel_add_notify">Cancel</string>
+    <string name="context_menu_device_gpi_add_notify">Create Notification</string>
+    <string name="dialog_device_gpi_notify_title">Notification Title</string>
+    <string name="dialog_device_gpi_notify_text">Notification Text</string>
+    <string name="context_menu_device_remove">Remove</string>
+    <string name="context_menu_zap_device_call_hangup">Hangup</string>
+    <string name="menu_zap_device_add">Add Device</string>
+    <string name="menu_zap_device_call_new">New Call</string>
+    <string name="context_menu_device_gpo_set">Set GPO</string>
+    <string name="context_menu_device_gpo_clear">Clear GPO</string>
+    <string name="dialog_device_gpo_action_title_set">Text GPO Set</string>
+    <string name="context_menu_device_gpo_add_notify">Create Notification</string>
+    <string name="context_menu_device_gpo_create_action">Create Action</string>
+    <string name="dialog_spinner_gpo_toggle">Toggle GPO</string>
+    <string name="dialog_spinner_gpo_set_3_timeout">Set GPO with 3 second timeout</string>
+    <string name="dialog_spinner_gpo_set_6_timeout">Set GPO with 6 second timeout</string>
+    <string name="title_activity_zap_device">ZapDeviceActivity</string>
+    <string name="context_menu_device_action_delete">Remove</string>
+    <string name="dialog_device_gpo_action_title_clear">Text GPO Clear</string>
+    <string name="add_new_device">Added New Device</string>
+    <string name="menu_activity_gpo">GPOs</string>
+    <string name="menu_activity_call">Calls</string>
+    <string name="menu_activity_action">Actions</string>
+    <string name="create_call">Created Call</string>
+    <string name="added_new_action">Added New Action</string>
+    <string name="added_new_notify">Added New Notification</string>
+    <string name="gpo_create_action">GPO Action</string>
+    <string name="gpo_create_notify">GPO Notification</string>
+    <string name="create_new_calls_help">Hangup calls by pressing and holding on a call, then choose option hangup.</string>
+    <string name="add_new_devices_help">Add new Turbine devices using the top right menu.\n\nRequires Turbine 4.3.X.X or newer and tcp connection from WiFi to port 50004 on the devices.</string>
+    <string name="dialog_device_gpo_action_title">Title</string>
+    <string name="device_id">Device Name</string>
+    <string name="gpo_action_prompt">Choose An Action</string>
+    <string name="create_new_notification_help_text">Create new notifications in GPOs/GPIs menu. Click and hold on an item for creating notification.</string>
+    <string name="create_new_actions_help_text">Create new actions in GPOs menu. Click and hold on an item for creating action.</string>
+    <string name="menu_activity_notify">Notifications</string>
+    <string name="context_menu_device_gpo_create_notify">Create Notification</string>
+    <string name="dialog_device_gpo_notify_title">Title</string>
+    <string name="dialog_device_gpo_notify_title_set">Text GPO Set - empty = disable</string>
+    <string name="dialog_device_gpo_notify_title_clear">Text GPO Clear - empty = disable</string>
+    <string name="gpi_create_notify">GPI Notification</string>
+    <string name="menu_activity_gpi">GPIs</string>
+    <string name="device_activity_name">Station List</string>
+</resources>
