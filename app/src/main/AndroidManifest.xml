@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mobile.eversvik.stationmonitor">
+    package="com.evmobile.eversvik.stationmonitor">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,17 +14,16 @@
         android:icon="@drawable/intercomicon"
         >
         <service
-            android:name="com.mobile.eversvik.stationmonitor.src.activity.ZapService"
+            android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapService"
             android:enabled="true"
             android:exported="true"
-            android:stopWithTask="true"
             />
 
         <activity
-            android:name="com.mobile.eversvik.stationmonitor.src.activity.ZapDeviceCallActivity"
+            android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceCallActivity"
             android:label="Endpoint Calls" />
         <activity
-            android:name="com.mobile.eversvik.stationmonitor.src.activity.ZapDevice1Activity"
+            android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDevice1Activity"
             android:label="@string/device_activity_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,13 +31,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.mobile.eversvik.stationmonitor.src.activity.ZapDeviceCallNewActivity" />
-        <activity android:name="com.mobile.eversvik.stationmonitor.src.activity.ZapDevice2MenuActivity" />
-        <activity android:name="com.mobile.eversvik.stationmonitor.src.activity.ZapDeviceCreateActivity" />
-        <activity android:name="com.mobile.eversvik.stationmonitor.src.activity.ZapDeviceGpoActivity" />
-        <activity android:name="com.mobile.eversvik.stationmonitor.src.activity.ZapDeviceGpiActivity" />
-        <activity android:name="com.mobile.eversvik.stationmonitor.src.activity.ZapDeviceActionActivity" />
-        <activity android:name="com.mobile.eversvik.stationmonitor.src.activity.ZapDeviceNotifyActivity" />
+        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceCallNewActivity" />
+        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDevice2MenuActivity" />
+        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceCreateActivity" />
+        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceGpoActivity" />
+        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceGpiActivity" />
+        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceActionActivity" />
+        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceNotifyActivity" />
     </application>
 
 </manifest>

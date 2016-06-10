@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Station Monitoring</string>
+    <string name="app_name">Intercom Monitoring</string>
     <string name="action_settings">Endpoint Calls</string>
 
     <string name="title_activity_call_setup">Call Setup</string>
@@ -46,5 +46,5 @@
     <string name="dialog_device_gpo_notify_title_clear">Text GPO Clear - empty = disable</string>
     <string name="gpi_create_notify">GPI Notification</string>
     <string name="menu_activity_gpi">GPIs</string>
-    <string name="device_activity_name">Station List</string>
+    <string name="device_activity_name">Intercom Monitor</string>
 </resources>
