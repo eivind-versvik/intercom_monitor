@@ -81,7 +81,7 @@ public class EventConfigFactory
         return rcfg;
     }
 
-    public static EventRuleConfig createRuleNotify(String id, String title_clear, String title_set, String title) {
+    public static EventRuleConfig createRuleNotifyGpo(String id, String title_clear, String title_set, String title) {
         EventRuleConfig rcfg = new EventRuleConfig(EventRuleConfig.MainType.NOTIFICATION, EventRuleConfig.SubType.NOTIFY_GPO, id, title);
         {
             if(title_set.length() > 0)

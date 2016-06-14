@@ -21,7 +21,6 @@
             </intent-filter>
         </receiver>
 
-
         <service
             android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapService"
             android:enabled="true"
@@ -30,7 +29,7 @@
 
         <activity
             android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceCallActivity"
-            android:label="Endpoint Calls" />
+            android:label="Intercom Calls" />
         <activity
             android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDevice1Activity"
             android:label="@string/device_activity_name">
@@ -40,13 +39,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceCallNewActivity" />
-        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDevice2MenuActivity" />
-        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceCreateActivity" />
-        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceGpoActivity" />
-        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceGpiActivity" />
-        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceActionActivity" />
-        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceNotifyActivity" />
+        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDevice2MenuActivity"
+            android:parentActivityName="com.evmobile.eversvik.stationmonitor.src.activity.ZapDevice1Activity"/>
+
+        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceCreateActivity"
+            android:parentActivityName="com.evmobile.eversvik.stationmonitor.src.activity.ZapDevice1Activity"/>
+
+        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceCallNewActivity"
+            android:parentActivityName="com.evmobile.eversvik.stationmonitor.src.activity.ZapDevice2MenuActivity" />
+
+        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceGpoActivity"
+            android:parentActivityName="com.evmobile.eversvik.stationmonitor.src.activity.ZapDevice2MenuActivity" />
+
+        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceGpiActivity"
+            android:parentActivityName="com.evmobile.eversvik.stationmonitor.src.activity.ZapDevice2MenuActivity"/>
+
+        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceActionActivity"
+            android:parentActivityName="com.evmobile.eversvik.stationmonitor.src.activity.ZapDevice2MenuActivity"/>
+
+        <activity android:name="com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceNotifyActivity"
+            android:parentActivityName="com.evmobile.eversvik.stationmonitor.src.activity.ZapDevice2MenuActivity"/>
     </application>
 
 </manifest>

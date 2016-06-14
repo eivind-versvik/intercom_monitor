@@ -8,6 +8,7 @@ import com.evmobile.eversvik.stationmonitor.src.device.Gpi;
 public class CondGpiConfig {
     private Gpi.State state = Gpi.State.UNKNOWN;
     private String id = "";
+    private boolean inverted = false; // Condition is true if Gpi is not similar as state
 
     public CondGpiConfig(String id, Gpi.State state)
     {
@@ -22,4 +23,11 @@ public class CondGpiConfig {
     public String getId() {
         return id;
     }
+
+    public void setInverted()
+    {
+        inverted = true;
+    }
+
+    public boolean isInverted() { return inverted; }
 }

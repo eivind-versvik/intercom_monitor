@@ -128,7 +128,7 @@ public class ZapDeviceGpoActivity extends AppCompatActivity implements Observer 
         builder.setPositiveButton(R.string.gpi_add_notify, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
 
-                endpoint.createRule(EventConfigFactory.createRuleNotify(c.getId(), title_clear.getText().toString(), title_set.getText().toString(), title.getText().toString()));
+                endpoint.createRule(EventConfigFactory.createRuleNotifyGpo(c.getId(), title_clear.getText().toString(), title_set.getText().toString(), title.getText().toString()));
                 ZapService.getInstance().saveConfig();
                 updateAdapter();
 

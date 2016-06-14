@@ -18,15 +18,15 @@ public class CondGpi implements CondIface {
     private EventObservable obs = new EventObservable();
     private CondGpiConfig config;
     private CompareItem<String, Gpi.State> state;
-    private GpoObserver gpoObserver = new GpoObserver();
-    private Gpi gpo;
+    private GpiObserver gpiObserver = new GpiObserver();
+    private Gpi gpi;
 
     public CondGpi(@NonNull CondGpiConfig config, @NonNull GpiResource resource)
     {
         this.config = config;
         this.state = new CompareItem<>(this.config.getState());
-        this.gpo = resource.getGpis().createOrGetGpi(config.getId());
-        this.gpo.addObserver(gpoObserver);
+        this.gpi = resource.getGpis().createOrGetGpi(config.getId());
+        this.gpi.addObserver(gpiObserver);
     }
 
     @Override
@@ -45,14 +45,14 @@ public class CondGpi implements CondIface {
 
     boolean isConditionTrue()
     {
-        return state.compare(gpo.getState());
+        return state.compare(gpi.getState());
     }
 
-    class GpoObserver implements Observer {
+    class GpiObserver implements Observer {
 
         @Override
         public void update(Observable observable, Object data) {
-            if(state.evaluate(gpo.getId(), gpo.getState()))
+            if(state.evaluate(gpi.getId(), gpi.getState()))
                 obs.setChanged();
 
             obs.notifyObservers();
