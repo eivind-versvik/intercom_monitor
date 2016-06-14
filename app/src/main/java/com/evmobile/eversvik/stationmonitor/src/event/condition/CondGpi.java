@@ -17,15 +17,15 @@ import java.util.Observer;
 public class CondGpi implements CondIface {
     private EventObservable obs = new EventObservable();
     private CondGpiConfig config;
-    private CompareItem<String, Gpi.State> state;
-    private GpiObserver gpiObserver = new GpiObserver();
+    private Gpi.State state;
     private Gpi gpi;
 
     public CondGpi(@NonNull CondGpiConfig config, @NonNull GpiResource resource)
     {
         this.config = config;
-        this.state = new CompareItem<>(this.config.getState());
+        this.state = this.config.getState();
         this.gpi = resource.getGpis().createOrGetGpi(config.getId());
+        GpiObserver gpiObserver = new GpiObserver();
         this.gpi.addObserver(gpiObserver);
     }
 
@@ -45,16 +45,20 @@ public class CondGpi implements CondIface {
 
     boolean isConditionTrue()
     {
-        return state.compare(gpi.getState());
+        if(config.isInverted())
+        {
+            return state.compareTo(gpi.getState()) != 0;
+        }
+        else
+            return state.compareTo(gpi.getState()) == 0;
     }
 
     class GpiObserver implements Observer {
 
         @Override
         public void update(Observable observable, Object data) {
-            if(state.evaluate(gpi.getId(), gpi.getState()))
+            if(isConditionTrue())
                 obs.setChanged();
-
             obs.notifyObservers();
         }
     }
