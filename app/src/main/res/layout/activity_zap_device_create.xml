@@ -23,7 +23,7 @@
         android:id="@+id/edit_ip_address"
         android:inputType="number|numberDecimal"
         android:digits="0123456789."
-        android:hint="IP Address"
+        android:hint="@string/ip_address"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -31,5 +31,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button_add_device"
-        android:text="Add Device"/>
+        android:text="@string/add_intercom"/>
 </LinearLayout>

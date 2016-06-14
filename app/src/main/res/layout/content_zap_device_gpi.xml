@@ -11,14 +11,14 @@
             android:id="@+id/label_gpi_kid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceListItem"
             >
         </TextView>
         <TextView
             android:id="@+id/label_gpi_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceListItem"
             >
         </TextView>
     </LinearLayout>

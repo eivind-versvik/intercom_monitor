@@ -4,32 +4,38 @@ android:layout_width="match_parent"
 android:layout_height="wrap_content"
     android:padding="8dip">
 
-<ImageView
-    android:layout_width="40dp"
-    android:layout_height="match_parent"
-    android:id="@+id/image_tcpstate" />
-<TextView
-    android:id="@+id/label_display"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@+id/label_display"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    >
-</TextView>
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:text=" @ "
-    >
-</TextView>
-<TextView
-    android:id="@+id/label_ipaddress"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@+id/label_ipaddress"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    >
-</TextView>
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:id="@+id/image_tcpstate"
+        android:padding="5dip"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/label_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@+id/label_display"
+                android:textAppearance="?android:attr/textAppearanceListItem"
+                >
+            </TextView>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/label_ipaddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@+id/label_ipaddress"
+            android:textAppearance="?android:attr/textAppearanceListItemSecondary"
+            >
+        </TextView>
+
+    </LinearLayout>
 
 </LinearLayout>
