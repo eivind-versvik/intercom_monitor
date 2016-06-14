@@ -128,7 +128,7 @@ public class ZapDevice1Activity extends AppCompatActivity {
                 return;
             }
             timerStarted = true;
-            timerHandler.postDelayed(this, 500);
+            timerHandler.postDelayed(this, 10);
         }
     };
 

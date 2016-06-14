@@ -28,16 +28,10 @@ public class ZapService extends Service {
     public ZapService() {
     }
 
-    // TODO: Default text on GPO?? What happens if blinkfast blinkslow ??
-    // TODO: Notifications GPO/GPI
-    // TODO: Remove Calling? Or just remove/add subscription on pause??
-    // TODO: Popup when action created with text
-
-    // TODO: Start TCP only when connected to a particular WIFI
-    // TODO: Add a monitored menu which shows everything which is monitored
-    // TODO: Create groups? Add notiftications / do actions on group
-    // TODO: Alerts menu showing all current notifications OR not-ACK'd notifications
-    // TODO: Action menu, show all configured actions
+    // TODO: Complete actions list
+    // TODO: Complete notification list
+    // TODO: Tab style actions / intercoms / notifications
+    // TODO: Rewrite shown text: title above body/text
 
     public static String SUB_SPATH = "spath";
     public static String SUB_DATA = "data";
@@ -119,8 +113,7 @@ public class ZapService extends Service {
         }
     }
 
-
-    @Override
+     @Override
     public int onStartCommand(Intent intent, int flags, int startId)
     {
         Log.d("ZapService", "onStartCommand");

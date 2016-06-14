@@ -46,5 +46,5 @@
     <string name="dialog_device_gpo_notify_title_clear">Text GPO Clear - empty = disable</string>
     <string name="gpi_create_notify">GPI Notification</string>
     <string name="menu_activity_gpi">GPIs</string>
-    <string name="device_activity_name">Intercom Monitor</string>
+    <string name="device_activity_name">Intercom Monitoring</string>
 </resources>
