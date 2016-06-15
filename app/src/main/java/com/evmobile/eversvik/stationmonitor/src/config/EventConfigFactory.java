@@ -81,48 +81,24 @@ public class EventConfigFactory
         return rcfg;
     }
 
-    public static EventRuleConfig createRuleNotifyGpo(String id, String title_clear, String title_set, String title) {
+    public static EventRuleConfig createRuleNotifyGpo(String id, Gpo.State type, String body, String title) {
         EventRuleConfig rcfg = new EventRuleConfig(EventRuleConfig.MainType.NOTIFICATION, EventRuleConfig.SubType.NOTIFY_GPO, id, title);
-        {
-            if(title_set.length() > 0)
-            {
-                EventItemConfig set = new EventItemConfig();
-                set.condition = createCondGpo(id, Gpo.State.set);
-                set.rpc.add(createNotify(title, title_set));
-                set.rpc.add(createDisplay(title_set, Color.WHITE));
-                rcfg.addItem(set);
-            }
-        }
-        {
-            if(title_clear.length() > 0)
-            {
-                EventItemConfig clear = new EventItemConfig();
-                clear.condition = createCondGpo(id, Gpo.State.clear);
-                clear.rpc.add(createNotify(title, title_clear));
-                clear.rpc.add(createDisplay(title_clear, Color.WHITE));
-                rcfg.addItem(clear);
-            }
-        }
-
-        return rcfg;
-    }
-
-    public static EventRuleConfig createRuleNotifyGpiSet(String id, String body, String title) {
-        EventRuleConfig rcfg = new EventRuleConfig(EventRuleConfig.MainType.NOTIFICATION, EventRuleConfig.SubType.NOTIFY_GPI, id, title);
         {
             if(body.length() > 0)
             {
                 EventItemConfig set = new EventItemConfig();
-                set.condition = createCondGpi(id, Gpi.State.active);
+                set.condition = createCondGpo(id, type);
                 set.rpc.add(createNotify(title, body));
                 set.rpc.add(createDisplay(body, Color.WHITE));
                 rcfg.addItem(set);
             }
         }
         {
+
             EventItemConfig clear = new EventItemConfig();
-            clear.condition = createCondGpi(id, Gpi.State.active);
-            clear.condition.gpi.setInverted();
+            clear.condition = createCondGpo(id, type);
+            clear.condition.gpo.setInverted();
+            clear.rpc.add(createNotify(title, ""));
             clear.rpc.add(createDisplay("", Color.WHITE));
             rcfg.addItem(clear);
         }
@@ -130,13 +106,13 @@ public class EventConfigFactory
         return rcfg;
     }
 
-    public static EventRuleConfig createRuleNotifyGpiClear(String id, String body, String title) {
+    public static EventRuleConfig createRuleNotifyGpi(String id, Gpi.State type, String body, String title) {
         EventRuleConfig rcfg = new EventRuleConfig(EventRuleConfig.MainType.NOTIFICATION, EventRuleConfig.SubType.NOTIFY_GPI, id, title);
         {
             if(body.length() > 0)
             {
                 EventItemConfig set = new EventItemConfig();
-                set.condition = createCondGpi(id, Gpi.State.inactive);
+                set.condition = createCondGpi(id, type);
                 set.rpc.add(createNotify(title, body));
                 set.rpc.add(createDisplay(body, Color.WHITE));
                 rcfg.addItem(set);
@@ -144,7 +120,7 @@ public class EventConfigFactory
         }
         {
             EventItemConfig clear = new EventItemConfig();
-            clear.condition = createCondGpi(id, Gpi.State.inactive);
+            clear.condition = createCondGpi(id, type);
             clear.condition.gpi.setInverted();
             clear.rpc.add(createDisplay("", Color.WHITE));
             rcfg.addItem(clear);

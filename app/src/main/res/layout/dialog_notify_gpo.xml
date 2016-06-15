@@ -9,22 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/dialog_device_gpo_action_title"/>
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/dialog_choices">
-    </Spinner>
     <EditText
-        android:id="@+id/dialog_notify_title_gpo_set"
+        android:id="@+id/dialog_notify_title_gpo_change"
         android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/dialog_device_gpo_action_title_set"/>
-    <EditText
-        android:id="@+id/dialog_notify_title_gpo_clear"
-        android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/dialog_device_gpo_action_title_clear"/>
+        android:hint="@string/dialog_device_gpo_notify_title_change"/>
 
 </LinearLayout>

@@ -6,6 +6,8 @@
     </item>
     <item android:title="@string/context_menu_device_gpo_create_action" android:id="@+id/action_create_gpo_action">
     </item>
-    <!--<item android:title="@string/context_menu_device_gpo_create_notify" android:id="@+id/notify_create_gpo_notify">
-    </item>-->
+    <item android:title="@string/context_menu_device_gpo_create_notify_set" android:id="@+id/notify_create_gpo_notify_set">
+    </item>
+    <item android:title="@string/context_menu_device_gpo_create_notify_clear" android:id="@+id/notify_create_gpo_notify_clear">
+    </item>
 </menu>

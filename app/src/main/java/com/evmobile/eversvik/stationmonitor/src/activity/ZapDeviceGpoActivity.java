@@ -114,21 +114,24 @@ public class ZapDeviceGpoActivity extends AppCompatActivity implements Observer 
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-/*
-    void createNotifyGpo(final Gpo c) {
+
+    void createNotifyGpo(final Gpo c, final Gpo.State type) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.dialog_notify_gpo, null);
         builder.setView(view);
 
-        builder.setTitle(R.string.gpo_create_notify);
+        if(type == Gpo.State.set)
+            builder.setTitle(R.string.gpo_create_notify);
+        else
+            builder.setTitle(R.string.gpo_create_notify_clear);
+
         final EditText title = (EditText)view.findViewById(R.id.dialog_notify_title);
-        final EditText title_set = (EditText)view.findViewById(R.id.dialog_notify_title_gpo_change);
-        final EditText title_clear = (EditText)view.findViewById(R.id.dialog_notify_title_gpo_clear);
+        final EditText body_change = (EditText)view.findViewById(R.id.dialog_notify_title_gpo_change);
 
         builder.setPositiveButton(R.string.gpi_add_notify, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
 
-                endpoint.createRule(EventConfigFactory.createRuleNotifyGpo(c.getId(), title_clear.getText().toString(), title_set.getText().toString(), title.getText().toString()));
+                endpoint.createRule(EventConfigFactory.createRuleNotifyGpo(c.getId(), type, body_change.getText().toString(), title.getText().toString()));
                 ZapService.getInstance().saveConfig();
                 updateAdapter();
 
@@ -145,7 +148,12 @@ public class ZapDeviceGpoActivity extends AppCompatActivity implements Observer 
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-*/
+
+
+    public enum notify_gpo_type {
+        gposet, gpoclear
+    }
+
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
@@ -161,9 +169,12 @@ public class ZapDeviceGpoActivity extends AppCompatActivity implements Observer 
             case R.id.action_create_gpo_action:
                 createActionGpo(gpo);
                 return true;
-            /*case R.id.notify_create_gpo_notify:
-                createNotifyGpo(gpo);
-                return true;*/
+            case R.id.notify_create_gpo_notify_set:
+                createNotifyGpo(gpo, Gpo.State.set);
+                return true;
+            case R.id.notify_create_gpo_notify_clear:
+                createNotifyGpo(gpo, Gpo.State.clear);
+                return true;
             default:
                 return super.onContextItemSelected(item);
         }

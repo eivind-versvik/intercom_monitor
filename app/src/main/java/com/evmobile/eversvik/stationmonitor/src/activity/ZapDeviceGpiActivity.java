@@ -50,10 +50,10 @@ public class ZapDeviceGpiActivity extends AppCompatActivity implements Observer 
         gpiset, gpiclear
     }
 
-    void createNotifyGpi(final Gpi c, final notify_gpi_type type) {
+    void createNotifyGpi(final Gpi c, final Gpi.State type) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        if(type == notify_gpi_type.gpiset)
+        if(type == Gpi.State.active)
             builder.setTitle(R.string.gpi_create_notify);
         else
             builder.setTitle(R.string.gpi_create_notify_clear);
@@ -70,10 +70,7 @@ public class ZapDeviceGpiActivity extends AppCompatActivity implements Observer 
         builder.setPositiveButton(R.string.gpi_add_notify, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
 
-                if(type == notify_gpi_type.gpiset)
-                    endpoint.createRule(EventConfigFactory.createRuleNotifyGpiSet(c.getId(), body_change.getText().toString(), title.getText().toString()));
-                else
-                    endpoint.createRule(EventConfigFactory.createRuleNotifyGpiClear(c.getId(), body_change.getText().toString(), title.getText().toString()));
+                endpoint.createRule(EventConfigFactory.createRuleNotifyGpi(c.getId(), type, body_change.getText().toString(), title.getText().toString()));
                 ZapService.getInstance().saveConfig();
                 updateAdapter();
 
@@ -97,12 +94,11 @@ public class ZapDeviceGpiActivity extends AppCompatActivity implements Observer 
         final Gpi gpi = list.get(info.position);
 
         switch (item.getItemId()) {
-            case R.id.action_notify_gpi_set:
-
-                createNotifyGpi(gpi, notify_gpi_type.gpiset);
+            case R.id.action_notify_gpi_active:
+                createNotifyGpi(gpi, Gpi.State.active);
                 return true;
-            case R.id.action_notify_gpi_clear:
-                createNotifyGpi(gpi, notify_gpi_type.gpiclear);
+            case R.id.action_notify_gpi_inactive:
+                createNotifyGpi(gpi, Gpi.State.inactive);
                 return true;
             default:
                 return super.onContextItemSelected(item);

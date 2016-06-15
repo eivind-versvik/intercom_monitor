@@ -18,14 +18,14 @@ public class CondGpo implements CondIface {
 
     private EventObservable obs = new EventObservable();
     private CondGpoConfig config;
-    private CompareItem<String, Gpo.State> state;
+    private Gpo.State state;
     private GpoObserver gpoObserver = new GpoObserver();
     private Gpo gpo;
 
     public CondGpo(@NonNull CondGpoConfig config, @NonNull GpoResource resource)
     {
         this.config = config;
-        this.state = new CompareItem<>(this.config.getState());
+        this.state = this.config.getState();
         this.gpo = resource.getGpos().createOrGetGpo(config.getId());
         this.gpo.addObserver(gpoObserver);
 
@@ -47,14 +47,19 @@ public class CondGpo implements CondIface {
 
     boolean isConditionTrue()
     {
-        return state.compare(gpo.getState());
+        if(config.isInverted())
+        {
+            return state.compareTo(gpo.getState()) != 0;
+        }
+        else
+            return state.compareTo(gpo.getState()) == 0;
     }
 
     class GpoObserver implements Observer {
 
         @Override
         public void update(Observable observable, Object data) {
-            if(state.evaluate(gpo.getId(), gpo.getState()))
+            if(isConditionTrue())
                 obs.setChanged();
 
             obs.notifyObservers();
