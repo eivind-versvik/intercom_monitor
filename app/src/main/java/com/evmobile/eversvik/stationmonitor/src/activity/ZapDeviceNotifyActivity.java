@@ -84,9 +84,9 @@ public class ZapDeviceNotifyActivity extends AppCompatActivity implements Observ
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zap_device_notify);
         Intent intent = getIntent();
-        Log.d("zapactivity", "create zap action " + intent.getStringExtra(ZapService.ZAP_DEVICE_ID));
+        Log.d("zapactivity", "create zap notify " + intent.getStringExtra(ZapService.ZAP_DEVICE_ID));
 
-        endpoint = ZapService.getInstance().getZapEndpoint(intent.getStringExtra(ZapService.ZAP_DEVICE_ID));
+        endpoint = ZapService.getInstance().getZapDeviceOrLast(intent.getStringExtra(ZapService.ZAP_DEVICE_ID));
         final ListView listView = (ListView) findViewById(R.id.listview_devicenotify);
         assert(listView != null);
 

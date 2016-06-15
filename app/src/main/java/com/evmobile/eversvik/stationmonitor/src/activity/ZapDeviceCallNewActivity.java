@@ -35,7 +35,7 @@ public class ZapDeviceCallNewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(ZapService.getInstance() == null)
                     Log.d(TAG, "error service null");
-                ZapDevice e = ZapService.getInstance().getZapEndpoint(zapid);
+                ZapDevice e = ZapService.getInstance().getZapDeviceOrLast(zapid);
                 e.getCalling().setupCall(username.getText().toString());
 
                 Intent intent = new Intent(ZapDeviceCallNewActivity.this, ZapDeviceCallActivity.class);

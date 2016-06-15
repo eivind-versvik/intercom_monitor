@@ -43,14 +43,10 @@ public class ZapDeviceActionAdapter extends ArrayAdapter<EventRule> {
         title.setText(item.getTitle());
 
         EventDisplay display = item.getDisplay();
-        String actionText = display.getText();
-        if(title.length() > 0)
-        {
-            actionText = " " + actionText;
-        }
-
         convertView.setBackgroundColor(display.getColor());
-        state.setText(actionText);
+
+        title.setText(item.getTitle());
+        state.setText(display.getText());
 
         return convertView;
     }

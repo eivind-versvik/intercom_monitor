@@ -46,20 +46,34 @@ public class ZapDeviceGpiActivity extends AppCompatActivity implements Observer 
         inflater.inflate(R.menu.context_menu_device_gpi, menu);
     }
 
-    void createNotifyGpi(final Gpi c) {
+    public enum notify_gpi_type {
+        gpiset, gpiclear
+    }
+
+    void createNotifyGpi(final Gpi c, final notify_gpi_type type) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        if(type == notify_gpi_type.gpiset)
+            builder.setTitle(R.string.gpi_create_notify);
+        else
+            builder.setTitle(R.string.gpi_create_notify_clear);
+
         View view = getLayoutInflater().inflate(R.layout.dialog_notify_gpi, null);
         builder.setView(view);
 
-        builder.setTitle(R.string.gpi_create_notify);
         final EditText title = (EditText)view.findViewById(R.id.dialog_notify_title);
-        final EditText title_set = (EditText)view.findViewById(R.id.dialog_notify_title_set);
-        final EditText title_clear = (EditText)view.findViewById(R.id.dialog_notify_title_clear);
+        final EditText body_change = (EditText)view.findViewById(R.id.dialog_notify_title_gpi_change);
+        assert(body_change != null);
+        assert(title != null);
+        // final EditText title_clear = (EditText)view.findViewById(R.id.dialog_notify_title_gpo_clear);
 
         builder.setPositiveButton(R.string.gpi_add_notify, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
 
-                endpoint.createRule(EventConfigFactory.createRuleNotifyGpi(c.getId(), title_clear.getText().toString(), title_set.getText().toString(), title.getText().toString()));
+                if(type == notify_gpi_type.gpiset)
+                    endpoint.createRule(EventConfigFactory.createRuleNotifyGpiSet(c.getId(), body_change.getText().toString(), title.getText().toString()));
+                else
+                    endpoint.createRule(EventConfigFactory.createRuleNotifyGpiClear(c.getId(), body_change.getText().toString(), title.getText().toString()));
                 ZapService.getInstance().saveConfig();
                 updateAdapter();
 
@@ -83,8 +97,12 @@ public class ZapDeviceGpiActivity extends AppCompatActivity implements Observer 
         final Gpi gpi = list.get(info.position);
 
         switch (item.getItemId()) {
-            case R.id.action_notify_gpi:
-                createNotifyGpi(gpi);
+            case R.id.action_notify_gpi_set:
+
+                createNotifyGpi(gpi, notify_gpi_type.gpiset);
+                return true;
+            case R.id.action_notify_gpi_clear:
+                createNotifyGpi(gpi, notify_gpi_type.gpiclear);
                 return true;
             default:
                 return super.onContextItemSelected(item);
@@ -98,7 +116,7 @@ public class ZapDeviceGpiActivity extends AppCompatActivity implements Observer 
         Intent intent = getIntent();
         assert(intent.getStringExtra(ZapService.ZAP_DEVICE_ID) != null);
 
-        endpoint = ZapService.getInstance().getZapEndpoint(intent.getStringExtra(ZapService.ZAP_DEVICE_ID));
+        endpoint = ZapService.getInstance().getZapDeviceOrLast(intent.getStringExtra(ZapService.ZAP_DEVICE_ID));
         assert(endpoint != null);
 
         final ListView listView = (ListView) findViewById(R.id.listview_devicegpi);

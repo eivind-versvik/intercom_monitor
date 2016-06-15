@@ -138,16 +138,8 @@ public class ZapService extends Service {
         return mBinder;
     }
 
-    public ZapDevice getZapEndpoint(String id)
-    {
-        for(int i = 0; i < zapEndpoints.size(); i++)
-        {
-            Log.d("testservice", zapEndpoints.get(i).id + " " + id);
-            if(zapEndpoints.get(i).id.equals(id))
-                return zapEndpoints.get(i);
-        }
-        return null;
-    }
+
+
 
 
     /**
@@ -171,10 +163,21 @@ public class ZapService extends Service {
         return d;
     }
 
+    private ZapDevice lastDevice = null;
+    public ZapDevice getZapDeviceOrLast(String id)
+    {
+        if(id == null)
+            return lastDevice;
+        lastDevice = getZapDevice(id);
+        return lastDevice;
+    }
+
     public ZapDevice getZapDevice(String id) {
         for (int i = 0; i < zapEndpoints.size(); i++) {
-            if (zapEndpoints.get(i).id.equals(id))
+            if (zapEndpoints.get(i).id.equals(id)) {
+
                 return zapEndpoints.get(i);
+            }
         }
         return null;
     }

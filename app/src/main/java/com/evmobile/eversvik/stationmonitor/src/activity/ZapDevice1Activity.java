@@ -138,8 +138,7 @@ public class ZapDevice1Activity extends AppCompatActivity {
         Log.d("ZapDevActivity", "onCreate");
         setContentView(R.layout.activity_list);
 
-        startZapService();
-        timerHandler.postDelayed(timerRunnable, 0);
+
 
         final ListView listView = (ListView) findViewById(R.id.listview);
         assert(listView != null);
@@ -147,6 +146,18 @@ public class ZapDevice1Activity extends AppCompatActivity {
 
         zapDeviceAdapter = new ZapDevice1Adapter(this, list);
         listView.setAdapter(zapDeviceAdapter);
+
+        if(ZapService.getInstance() != null)
+        {
+            zapService = ZapService.getInstance();
+            updateAdapter();
+        }
+        else
+        {
+            startZapService();
+            timerHandler.postDelayed(timerRunnable, 0);
+
+        }
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

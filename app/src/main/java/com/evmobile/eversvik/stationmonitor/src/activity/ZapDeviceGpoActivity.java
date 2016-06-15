@@ -79,8 +79,8 @@ public class ZapDeviceGpoActivity extends AppCompatActivity implements Observer 
         }
 
         final EditText title = (EditText)view.findViewById(R.id.dialog_notify_title);
-        final EditText title_set = (EditText)view.findViewById(R.id.dialog_notify_title_set);
-        final EditText title_clear = (EditText)view.findViewById(R.id.dialog_notify_title_clear);
+        final EditText title_set = (EditText)view.findViewById(R.id.dialog_notify_title_gpo_set);
+        final EditText title_clear = (EditText)view.findViewById(R.id.dialog_notify_title_gpo_clear);
 
         builder.setPositiveButton(R.string.gpi_add_notify, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -114,7 +114,7 @@ public class ZapDeviceGpoActivity extends AppCompatActivity implements Observer 
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
+/*
     void createNotifyGpo(final Gpo c) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.dialog_notify_gpo, null);
@@ -122,8 +122,8 @@ public class ZapDeviceGpoActivity extends AppCompatActivity implements Observer 
 
         builder.setTitle(R.string.gpo_create_notify);
         final EditText title = (EditText)view.findViewById(R.id.dialog_notify_title);
-        final EditText title_set = (EditText)view.findViewById(R.id.dialog_notify_title_set);
-        final EditText title_clear = (EditText)view.findViewById(R.id.dialog_notify_title_clear);
+        final EditText title_set = (EditText)view.findViewById(R.id.dialog_notify_title_gpo_change);
+        final EditText title_clear = (EditText)view.findViewById(R.id.dialog_notify_title_gpo_clear);
 
         builder.setPositiveButton(R.string.gpi_add_notify, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -145,7 +145,7 @@ public class ZapDeviceGpoActivity extends AppCompatActivity implements Observer 
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
+*/
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
@@ -161,9 +161,9 @@ public class ZapDeviceGpoActivity extends AppCompatActivity implements Observer 
             case R.id.action_create_gpo_action:
                 createActionGpo(gpo);
                 return true;
-            case R.id.notify_create_gpo_notify:
+            /*case R.id.notify_create_gpo_notify:
                 createNotifyGpo(gpo);
-                return true;
+                return true;*/
             default:
                 return super.onContextItemSelected(item);
         }
@@ -176,7 +176,7 @@ public class ZapDeviceGpoActivity extends AppCompatActivity implements Observer 
         Intent intent = getIntent();
         assert(intent.getStringExtra(ZapService.ZAP_DEVICE_ID) != null);
 
-        endpoint = ZapService.getInstance().getZapEndpoint(intent.getStringExtra(ZapService.ZAP_DEVICE_ID));
+        endpoint = ZapService.getInstance().getZapDeviceOrLast(intent.getStringExtra(ZapService.ZAP_DEVICE_ID));
         assert(endpoint != null);
 
         final ListView listView = (ListView) findViewById(R.id.listview_devicegpo);

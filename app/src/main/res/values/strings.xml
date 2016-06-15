@@ -5,7 +5,8 @@
     <string name="title_activity_call_setup">Call Setup</string>
     <string name="gpi_add_notify">Add</string>
     <string name="gpi_cancel_add_notify">Cancel</string>
-    <string name="context_menu_device_gpi_add_notify">Create Notification</string>
+    <string name="context_menu_device_gpi_add_notify_set">Notification GPI Set</string>
+    <string name="context_menu_device_gpi_add_notify_clear">Notification GPI Clear</string>
     <string name="dialog_device_gpi_notify_title">Notification Title</string>
     <string name="dialog_device_gpi_notify_text">Notification Text</string>
     <string name="context_menu_device_remove">Remove</string>
@@ -44,7 +45,8 @@
     <string name="dialog_device_gpo_notify_title">Title</string>
     <string name="dialog_device_gpo_notify_title_set">Text GPO Set - empty = disable</string>
     <string name="dialog_device_gpo_notify_title_clear">Text GPO Clear - empty = disable</string>
-    <string name="gpi_create_notify">GPI Notification</string>
+    <string name="gpi_create_notify">GPI Notification On Set</string>
+    <string name="gpi_create_notify_clear">GPI Notification On Clear</string>
     <string name="menu_activity_gpi">GPIs</string>
     <string name="device_activity_name">Intercom Monitoring</string>
     <string name="add_intercom">Add Intercom</string>

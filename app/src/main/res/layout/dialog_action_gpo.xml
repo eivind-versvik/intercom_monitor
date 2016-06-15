@@ -15,16 +15,14 @@
         android:id="@+id/dialog_choices">
     </Spinner>
     <EditText
-        android:id="@+id/dialog_notify_title_set"
+        android:id="@+id/dialog_notify_title_gpo_set"
         android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/dialog_device_gpo_action_title_set"/>
     <EditText
-        android:id="@+id/dialog_notify_title_clear"
+        android:id="@+id/dialog_notify_title_gpo_clear"
         android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/dialog_device_gpo_action_title_clear"/>
-
-</LinearLayout>
+        android:hint="@string/dialog_device_gpo_action_title_clear"/></LinearLayout>

@@ -64,7 +64,7 @@ public class ZapDeviceCallActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zap_device_call);
 
-        endpoint = ZapService.getInstance().getZapEndpoint(intent.getStringExtra(ZapService.ZAP_DEVICE_ID));
+        endpoint = ZapService.getInstance().getZapDeviceOrLast(intent.getStringExtra(ZapService.ZAP_DEVICE_ID));
         assert(endpoint != null);
 
         // Get ListView object from xml

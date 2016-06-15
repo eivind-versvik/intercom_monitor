@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="@string/context_menu_device_gpi_add_notify" android:id="@+id/action_notify_gpi">
+    <item android:title="@string/context_menu_device_gpi_add_notify_set" android:id="@+id/action_notify_gpi_set">
+    </item>
+    <item android:title="@string/context_menu_device_gpi_add_notify_clear" android:id="@+id/action_notify_gpi_clear">
     </item>
 </menu>
