@@ -38,8 +38,8 @@
     <string name="dialog_device_gpo_action_title">Title</string>
     <string name="device_id">Intercom Name</string>
     <string name="gpo_action_prompt">Choose An Action</string>
-    <string name="create_new_notification_help_text">Create new notifications in GPOs/GPIs menu. Click and hold on an item for creating notification.</string>
-    <string name="create_new_actions_help_text">Create new actions in GPOs menu. Click and hold on an item for creating action.</string>
+    <string name="create_new_notification_help_text">Create new notifications in Intercom GPOs/GPIs menu. Click and hold on an item for creating notification.</string>
+    <string name="create_new_actions_help_text">Create new actions in Intercom GPOs menu. Click and hold on an item for creating action.</string>
     <string name="menu_activity_notify">Notifications</string>
     <string name="context_menu_device_gpo_create_notify">Create Notification</string>
     <string name="dialog_device_gpo_notify_title">Title</string>
@@ -51,4 +51,6 @@
     <string name="device_activity_name">Intercom Monitoring</string>
     <string name="add_intercom">Add Intercom</string>
     <string name="ip_address">IP Address</string>
+    <string name="title_activity_intercom_start">Intercom Monitoring</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
