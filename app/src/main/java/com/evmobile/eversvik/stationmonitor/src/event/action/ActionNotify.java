@@ -1,5 +1,6 @@
 package com.evmobile.eversvik.stationmonitor.src.event.action;
 
+import com.evmobile.eversvik.stationmonitor.src.activity.IntercomStartActivity;
 import com.evmobile.eversvik.stationmonitor.src.activity.ZapDeviceNotifyActivity;
 import com.evmobile.eversvik.stationmonitor.src.activity.ZapNotify;
 import com.evmobile.eversvik.stationmonitor.src.activity.ZapService;
@@ -21,6 +22,6 @@ public class ActionNotify implements EventActionIface {
     @Override
     public void activate() {
         // TODO notify id!
-        ZapNotify.createNotify(ZapService.getInstance(), config.getTitle(), config.getBody(), ZapDeviceNotifyActivity.class, id, "1", 0);
+        ZapNotify.createNotify(ZapService.getInstance(), config.getTitle(), config.getBody(), IntercomStartActivity.class, id, "1", 0);
     }
 }

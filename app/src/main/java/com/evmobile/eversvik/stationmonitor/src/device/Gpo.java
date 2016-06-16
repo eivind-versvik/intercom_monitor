@@ -59,6 +59,11 @@ public class Gpo implements Comparable<Gpo> {
         this.obs.addObserver(observer);
     }
 
+    public void removeObserver(Observer observer)
+    {
+        this.obs.deleteObserver(observer);
+    }
+
     public static State textToState(String text) {
         if (text.equals("set"))
             return State.set;

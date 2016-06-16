@@ -98,7 +98,6 @@ public class EventConfigFactory
             EventItemConfig clear = new EventItemConfig();
             clear.condition = createCondGpo(id, type);
             clear.condition.gpo.setInverted();
-            clear.rpc.add(createNotify(title, ""));
             clear.rpc.add(createDisplay("", Color.WHITE));
             rcfg.addItem(clear);
         }

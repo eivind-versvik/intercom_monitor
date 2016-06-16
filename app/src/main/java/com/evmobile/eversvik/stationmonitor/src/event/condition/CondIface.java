@@ -8,4 +8,5 @@ import java.util.Observer;
 public interface CondIface {
     void addObserver(Observer er);
     void init();
+    void close();
 }

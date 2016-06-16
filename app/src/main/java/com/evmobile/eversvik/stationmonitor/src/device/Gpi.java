@@ -50,6 +50,11 @@ public class Gpi implements Comparable<Gpi> {
         this.obs.addObserver(observer);
     }
 
+    public void removeObserver(Observer observer)
+    {
+        this.obs.deleteObserver(observer);
+    }
+
     public static State textToState(String text) {
         if (text.equals("true"))
             return State.active;

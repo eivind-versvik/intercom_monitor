@@ -39,10 +39,10 @@
         </activity>
         <activity
             android:name=".src.activity.ZapDevice2MenuActivity"
-            android:parentActivityName=".src.activity.ZapDevice1Activity" />
+            android:parentActivityName=".src.activity.IntercomStartActivity" />
         <activity
             android:name=".src.activity.ZapDeviceCreateActivity"
-            android:parentActivityName=".src.activity.ZapDevice1Activity" />
+            android:parentActivityName=".src.activity.IntercomStartActivity" />
         <activity
             android:name=".src.activity.ZapDeviceCallNewActivity"
             android:parentActivityName=".src.activity.ZapDevice2MenuActivity" />

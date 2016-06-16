@@ -78,6 +78,7 @@ public class ZapDevice implements ZapDataIface, DeviceResource {
     public void removeRule(EventRule rule)
     {
         config.removeRule(rule.getConfig());
+        rule.close();
         this.rule.remove(rule);
     }
 
@@ -125,8 +126,13 @@ public class ZapDevice implements ZapDataIface, DeviceResource {
         }
     }
 
-    public void freeResources()
+    public void close()
     {
+        for(int i = 0; i < rule.size(); i++)
+        {
+            EventRule l = rule.get(i);
+            l.close();
+        }
         tcpCon.stopClient();
     }
 

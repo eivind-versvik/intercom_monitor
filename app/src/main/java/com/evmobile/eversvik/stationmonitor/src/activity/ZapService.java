@@ -190,7 +190,7 @@ public class ZapService extends Service {
             project.removeDevice(device.config);
             zapEndpoints.remove(device);
             saveConfig();
-            device.freeResources();
+            device.close();
         }
     }
 

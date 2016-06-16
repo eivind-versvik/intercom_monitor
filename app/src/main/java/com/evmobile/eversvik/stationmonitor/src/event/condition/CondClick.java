@@ -17,10 +17,12 @@ public class CondClick implements CondIface {
     EventObservable obs = new EventObservable();
     CondClickConfig config;
     ClickObserver clickObserver = new ClickObserver();
+    EventDisplay display;
 
     public CondClick(@NonNull CondClickConfig config, @NonNull EventDisplay display)
     {
         this.config = config;
+        this.display = display;
         display.addClickObserver(clickObserver);
     }
 
@@ -32,6 +34,11 @@ public class CondClick implements CondIface {
     @Override
     public void init() {
 
+    }
+
+    @Override
+    public void close() {
+        display.removeClickObserver(clickObserver);
     }
 
     class ClickObserver implements Observer {

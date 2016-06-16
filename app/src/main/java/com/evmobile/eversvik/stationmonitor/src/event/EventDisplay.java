@@ -34,6 +34,11 @@ public class EventDisplay {
         clickObserver.addObserver(observer);
     }
 
+    public void removeClickObserver(Observer observer)
+    {
+        clickObserver.deleteObserver(observer);
+    }
+
     public void addDisplayObserver(Observer observer)
     {
         displayObserver.addObserver(observer);

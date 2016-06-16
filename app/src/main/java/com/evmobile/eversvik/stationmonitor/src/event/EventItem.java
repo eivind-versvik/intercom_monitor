@@ -32,6 +32,11 @@ public class EventItem {
         }
     }
 
+    public void close()
+    {
+        condition.close();
+    }
+
     public void activateRpcs()
     {
         for(int i = 0; i < rpc.size(); i++)

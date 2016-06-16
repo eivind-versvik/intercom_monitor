@@ -19,14 +19,20 @@ public class CondGpi implements CondIface {
     private CondGpiConfig config;
     private Gpi.State state;
     private Gpi gpi;
+    private GpiObserver gpiObserver;
 
     public CondGpi(@NonNull CondGpiConfig config, @NonNull GpiResource resource)
     {
         this.config = config;
         this.state = this.config.getState();
         this.gpi = resource.getGpis().createOrGetGpi(config.getId());
-        GpiObserver gpiObserver = new GpiObserver();
+        gpiObserver = new GpiObserver();
         this.gpi.addObserver(gpiObserver);
+    }
+
+    public void close()
+    {
+        this.gpi.removeObserver(gpiObserver);
     }
 
     @Override

@@ -45,6 +45,11 @@ public class CondGpo implements CondIface {
         }
     }
 
+    @Override
+    public void close() {
+        this.gpo.removeObserver(gpoObserver);
+    }
+
     boolean isConditionTrue()
     {
         if(config.isInverted())

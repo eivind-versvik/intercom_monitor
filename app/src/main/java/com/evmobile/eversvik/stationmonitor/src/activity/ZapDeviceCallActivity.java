@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -100,7 +102,7 @@ public class ZapDeviceCallActivity extends AppCompatActivity {
         super.onDestroy();
         endpoint.getCalling().removeObserver(obs);
     }
-/*
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v,
                                     ContextMenu.ContextMenuInfo menuInfo) {
@@ -108,21 +110,21 @@ public class ZapDeviceCallActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.context_menu_zap_device_call, menu);
 
-    }*/
+    }
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()) {
-           /* case R.id.action_hangup:
+           case R.id.action_hangup:
                 Call c = list.get(info.position);
                 endpoint.getCalling().hangupCall(c.getCallId());
-                return true;*/
+                return true;
             default:
                 return super.onContextItemSelected(item);
         }
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_zap_device_call, menu);
@@ -141,5 +143,5 @@ public class ZapDeviceCallActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }

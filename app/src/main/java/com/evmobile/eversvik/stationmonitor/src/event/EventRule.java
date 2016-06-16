@@ -31,6 +31,15 @@ public class EventRule implements EventResource {
         }
     }
 
+    public void close()
+    {
+        for(int i = 0; i < item.size(); i++)
+        {
+            EventItem evtitem = item.get(i);
+            evtitem.close();
+        }
+    }
+
     public EventRuleConfig getConfig() { return this.config; }
 
     public EventRuleConfig.MainType getMainType() { return config.getMain_type(); }

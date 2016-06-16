@@ -15,4 +15,9 @@ public class CondDummy implements CondIface {
     public void init() {
 
     }
+
+    @Override
+    public void close() {
+
+    }
 }

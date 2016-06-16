@@ -33,4 +33,9 @@ public class CondTimer implements CondIface {
     public void init() {
         // Dont do anything
     }
+
+    @Override
+    public void close() {
+
+    }
 }
